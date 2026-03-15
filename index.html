@@ -1,0 +1,2739 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portfolio — Louna Diliberto</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    html{
+  scroll-behavior: smooth;
+}
+    :root{
+      --bg:#faf7f8;
+      --panel:#ffffffcc;
+      --text:#121214;
+      --muted:#6b6b75;
+      --line:#ececf2;
+      --accent:#e45aa7; /* rose */
+      --accent2:#ff86c6;
+      --shadow: 0 16px 40px rgba(18,18,20,.10);
+      --radius: 26px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 10% 10%, rgba(228,90,167,.14), transparent 55%),
+        radial-gradient(900px 500px at 90% 20%, rgba(255,134,198,.12), transparent 55%),
+        var(--bg);
+      overflow-x:hidden;
+    }
+
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1180px;margin:0 auto;padding:22px}
+
+    /* Nav (pill) */
+    .topbar{
+      position:sticky; top:14px; z-index:20;
+      margin: 14px auto 0;
+      width: min(1120px, calc(100% - 28px));
+    }
+.navpill{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  background: rgba(255,255,255,.72);
+  border:1px solid rgba(255,255,255,.7);
+  border-radius:999px;
+  padding:14px 18px;
+  box-shadow: 0 16px 40px rgba(18,18,20,.10);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.links a{
+  position:relative;
+  font-weight:600;
+  font-size:15px;
+  color:var(--muted);
+  padding:8px 8px;
+  border-radius:999px;
+  white-space:nowrap;
+  transition: color .25s ease, background .25s ease, transform .25s ease;
+}
+
+.links a:hover{
+  color: var(--text);
+  background: rgba(255,255,255,.7);
+  transform: translateY(-1px);
+}
+
+.links a::after{
+  content:"";
+  position:absolute;
+  left:5px;
+  right:10px;
+  bottom:4px;
+  height:2px;
+  border-radius:999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  transform: scaleX(0);
+  transform-origin:center;
+  transition: transform .25s ease;
+}
+
+.links a:hover::after{
+  transform: scaleX(1);
+}
+.links a.active{
+  background: rgba(255,255,255,.9);
+  color: var(--text);
+  box-shadow: 0 6px 18px rgba(18,18,20,.08);
+}
+
+.btn.primary{
+  position:relative;
+  overflow:hidden;
+  border-color:transparent;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color:#fff;
+  box-shadow: 0 12px 26px rgba(228,90,167,.25);
+  transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+  padding:12px 16px;
+  font-size:15px;
+  white-space:nowrap;
+}
+
+.btn.primary::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-120%;
+  width:80%;
+  height:100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent);
+  transform: skewX(-20deg);
+  transition: left .5s ease;
+}
+
+.btn.primary:hover{
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 18px 34px rgba(228,90,167,.32);
+  filter: saturate(1.08);
+}
+
+.btn.primary:hover::after{
+  left:140%;
+}
+
+    /* Hero */
+    .hero{
+      padding: 34px 0 10px;
+    }
+.hero-grid{
+  display:grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 60px;
+  align-items:center;
+  padding: 36px 0 14px;
+}
+.hero-grid > div:first-child{
+  padding-left: 34px;
+}
+    .eyebrow{
+      font-weight:700;
+      letter-spacing:.22em;
+      color: var(--muted);
+      text-transform:uppercase;
+      font-size: 12px;
+      margin: 0 0 10px 0;
+    }
+    .title{
+      font-size: clamp(44px, 6vw, 92px);
+      line-height: .95;
+      margin: 0;
+      letter-spacing: -0.03em;
+    }
+    .title .accent{
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+    .subtitle{
+      margin: 18px 0 18px;
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 58ch;
+    }
+    .chips{display:flex; gap:10px; flex-wrap:wrap; margin-top: 14px}
+    .chip{
+      font-size: 13px;
+      font-weight:600;
+      color: var(--muted);
+      padding: 8px 12px;
+      border-radius: 999px;
+      background:#fff;
+      border:1px solid var(--line);
+    }
+    .badge{
+      position:absolute;
+      bottom: 18px;
+      right: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid var(--line);
+      font-weight:800;
+      color: var(--accent);
+      box-shadow: 0 10px 24px rgba(18,18,20,.12);
+    }
+    .hero-copy{
+  opacity: 0;
+  transform: translateY(28px);
+  animation: heroTextReveal 1s ease forwards;
+  animation-delay: .15s;
+}
+
+.hero-marquee{
+  margin-top: 28px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #d98bb3, #e8a8c8, #d98bb3);
+  border: 1px solid rgba(255,255,255,.28);
+  box-shadow: 0 14px 32px rgba(18,18,20,.10);
+  padding: 18px 0;
+}
+
+.hero-marquee-track{
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  width: max-content;
+  white-space: nowrap;
+  animation: marqueeScroll 32s linear infinite;
+}
+
+.hero-marquee-track span{
+  color: rgba(255,255,255,.95);
+  font-size: clamp(24px, 2.3vw, 34px);
+  font-style: italic;
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: .01em;
+}
+
+@keyframes heroTextReveal{
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroPhotoReveal{
+  to{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes floatPortrait{
+  0%,100%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes marqueeScroll{
+  0%{
+    transform: translateX(0);
+  }
+  100%{
+    transform: translateX(-50%);
+  }
+}
+
+    /* Sections */
+    .section{
+      margin-top: 26px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+    .section a{
+color: var(--accent);
+font-weight:700;
+}
+    .section h2{
+      margin: 0 0 10px;
+      font-size: 20px;
+      letter-spacing:-0.01em;
+    }
+    #apropos .about-title{
+  margin: 0;
+  font-size: 108px !important;
+  line-height: 0.85 !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.05em !important;
+}
+#apropos .about-left{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: stretch;
+  padding: 26px 0;
+  max-width: none;
+}
+
+    .section p{margin:0;color:var(--muted)}
+    .grid{
+      margin-top: 12px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .card{
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+}
+
+.card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 18px 34px rgba(18,18,20,.10);
+  border-color: rgba(228,90,167,.28);
+}
+
+    .card h3{margin:0 0 6px; font-size: 15px}
+    .card p{margin:0; color:var(--muted); font-size: 13px}
+
+    footer{
+      margin: 28px 0 18px;
+      text-align:center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px){
+      .hero-grid{grid-template-columns:1fr; text-align:center}
+      .subtitle{margin-left:auto;margin-right:auto}
+      .cta{display:none}
+      .links{justify-content:center}
+      .portrait-wrap{margin-top: 6px}
+      .grid{grid-template-columns:1fr}
+    }
+
+/* ===== ABOUT (À PROPOS) ===== */
+.about-grid{
+  display:grid;
+  grid-template-columns: 460px 1fr; /* colonne gauche FIXE et grande */
+  gap: 70px;
+  align-items:start;
+}
+
+.about-kicker{
+  margin:0 0 14px 0;
+  font-weight:900;
+  letter-spacing:.28em;
+  font-size:14px;                 /* plus visible */
+  text-transform:uppercase;
+  color: var(--muted);
+}
+
+.about-title{
+  margin:0;
+  font-size: 108px;     /* énorme */
+  line-height: .85;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+}
+
+.about-accent{
+  color: var(--accent);
+  font-weight:900;
+}
+
+.about-line{
+  width: 90px;
+  height: 4px;
+  background: #111;
+  border-radius: 999px;
+  margin: 18px 0 18px;
+  opacity: .9;
+}
+
+.about-quote{
+  margin:0;
+  max-width: 340px;               /* comme un “bloc citation” */
+  color: var(--muted);
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.about-right .about-text{
+  margin: 4px 0 14px 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height:1.7;
+}
+
+.about-cards{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.about-card{
+  border:1px solid var(--line);
+  border-radius: 18px;
+  background:#fff;
+  padding: 14px;
+}
+
+.about-icon{
+  width:42px;height:42px;
+  border-radius: 14px;
+  display:grid;place-items:center;
+  background: linear-gradient(135deg, rgba(228,90,167,.12), rgba(255,134,198,.10));
+  border:1px solid var(--line);
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.about-card h3{
+  margin: 0 0 10px 0;
+  font-size: 16px;
+}
+
+.about-left::after{
+  content:"À PROPOS";
+  position:absolute;
+  left:-10px;
+  top:-20px;              /* ✅ REMONTÉ */
+  font-size: 140px;
+  font-weight: 900;
+  letter-spacing:-0.04em;
+  color: rgba(0,0,0,0.04);
+  pointer-events:none;
+  user-select:none;
+}
+
+.pill-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.pill{
+  font-size: 12px;
+  font-weight:600;
+  color: var(--muted);
+  padding: 7px 10px;
+  border-radius: 999px;
+  background:#fff;
+  border:1px solid var(--line);
+}
+
+@media (max-width: 900px){
+  .about-grid{grid-template-columns:1fr}
+  .about-cards{grid-template-columns:1fr}
+  .about-left{text-align:left}
+}
+
+.footer{
+margin-top:80px;
+padding:30px 20px;
+border-top:1px solid #eee;
+}
+
+.footer-content{
+max-width:1100px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+font-size:14px;
+color:#777;
+}
+
+.footer-links{
+display:flex;
+gap:20px;
+}
+
+.footer-links a{
+text-decoration:none;
+color:#777;
+transition:0.3s;
+}
+
+.footer-links a:hover{
+color:#e88bb0;
+}
+
+.reveal{
+  opacity:0;
+  transform: translateY(40px);
+  transition: opacity .9s cubic-bezier(.22,.61,.36,1),
+              transform .9s cubic-bezier(.22,.61,.36,1);
+}
+
+.reveal.visible{
+  opacity:1;
+  transform: translateY(0);
+}
+.about-card{
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+}
+
+.about-card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 18px 34px rgba(18,18,20,.10);
+  border-color: rgba(228,90,167,.28);
+}
+.pill{
+  transition: all .25s ease;
+}
+
+.pill:hover{
+  background: var(--accent);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(228,90,167,.18);
+}
+
+/* ===== PARCOURS ===== */
+#parcours{
+  overflow: hidden;
+}
+
+.timeline{
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  align-items: start;
+  padding-top: 70px;
+}
+
+.timeline-line{
+  position: absolute;
+  top: 22px;
+  left: 7%;
+  right: 7%;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(228,90,167,.18), rgba(228,90,167,.55), rgba(255,134,198,.22));
+}
+
+.timeline-step{
+  position: relative;
+  opacity: 0;
+  transform: translateY(26px);
+  animation: timelineFade .7s ease forwards;
+}
+
+.timeline-step:nth-child(2){ animation-delay: .05s; }
+.timeline-step:nth-child(3){ animation-delay: .12s; }
+.timeline-step:nth-child(4){ animation-delay: .19s; }
+.timeline-step:nth-child(5){ animation-delay: .26s; }
+
+.timeline-dot{
+  position: absolute;
+  top: -52px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  box-shadow: 0 0 0 8px rgba(228,90,167,.10);
+}
+
+.timeline-card{
+  background: linear-gradient(180deg, #ffffff, #fffafb);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 24px;
+  min-height: 420px;
+  box-shadow: 0 12px 28px rgba(18,18,20,.05);
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+  overflow-wrap: break-word;
+}
+
+.timeline-card:hover{
+  transform: translateY(-8px);
+  box-shadow: 0 22px 40px rgba(18,18,20,.10);
+  border-color: rgba(228,90,167,.24);
+}
+
+.timeline-date{
+  display: inline-block;
+  margin-bottom: 18px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(228,90,167,.08);
+  border: 1px solid rgba(228,90,167,.16);
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.timeline-card h3{
+  margin: 0 0 10px 0;
+  font-size: 22px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+.timeline-card h4{
+  margin: 0 0 16px 0;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #6f6f7b;
+  font-weight: 700;
+}
+
+.timeline-card p{
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+@keyframes timelineFade{
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1100px){
+  .timeline{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    padding-top: 30px;
+  }
+
+  .timeline-line,
+  .timeline-dot{
+    display: none;
+  }
+
+  .timeline-card{
+    min-height: auto;
+  }
+}
+
+@media (max-width: 700px){
+  .timeline{
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-text{
+    font-size: 16px;
+  }
+
+  .timeline-card h3{
+    font-size: 21px;
+  }
+}
+
+@media (max-width: 1200px){
+  .cta{
+    display:none;
+  }
+}
+
+@media (max-width: 900px){
+  .navpill{
+    overflow-x:auto;
+    border-radius:28px;
+  }
+
+  .links{
+    justify-content:flex-start;
+  }
+}
+
+/* ===== COMPÉTENCES VERSION MODERNE ===== */
+.skills-header{
+  max-width: 760px;
+  margin-bottom: 30px;
+}
+
+.skills-kicker{
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: .22em;
+  color: var(--muted);
+}
+
+.skills-main-title{
+  margin: 0 0 12px 0;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.skills-main-line{
+  width: 90px;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), rgba(255,134,198,.35));
+  margin: 0 0 18px 0;
+}
+
+.skills-main-text{
+  margin: 0 0 18px 0;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--muted);
+  max-width: 700px;
+}
+
+.skills-cards-grid{
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.skill-card-modern{
+  position: relative;
+  text-align: left;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, #ffffff, #fffafb);
+  border-radius: 24px;
+  padding: 22px 18px;
+  min-height: 190px;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(18,18,20,.05);
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+  opacity: 0;
+  transform: translateY(26px);
+}
+
+.skill-card-modern.visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skill-card-modern:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 18px 34px rgba(18,18,20,.10);
+  border-color: rgba(228,90,167,.24);
+}
+
+.skill-number{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  margin-bottom: 16px;
+  background: rgba(228,90,167,.10);
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.skill-card-modern h3{
+  margin: 0 0 10px 0;
+  font-size: 20px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.skill-card-modern p{
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+@media (max-width: 1100px){
+  .skills-cards-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px){
+  .skills-cards-grid{
+    grid-template-columns: 1fr;
+  }
+}
+/* ===== BOÎTE À OUTILS ===== */
+.tools-intro{
+  max-width: 760px;
+  margin-bottom: 22px;
+  text-align:center;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.tools-kicker{
+  margin:0 0 10px 0;
+  font-size:14px;
+  font-weight:800;
+  letter-spacing:.22em;
+  color:var(--muted);
+}
+
+.tools-title{
+  margin:0 0 12px 0;
+  font-size:28px;
+  font-weight:800;
+}
+
+.tools-text{
+  margin:0;
+  font-size:17px;
+  line-height:1.6;
+  color:var(--muted);
+}
+
+.tools-grid{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:32px;
+  margin-top:34px;
+}
+
+.tool-item{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  transition:transform .25s ease;
+  min-width:78px;
+}
+
+.tool-item:hover{
+  transform:translateY(-4px);
+}
+
+.tool-logo{
+  width:58px;
+  height:58px;
+  border-radius:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff;
+  border:1px solid var(--line);
+  box-shadow:0 8px 18px rgba(0,0,0,0.06);
+  margin-bottom:10px;
+  transition:all .25s ease;
+}
+
+.tool-item:hover .tool-logo{
+  border-color:var(--accent);
+  box-shadow:0 10px 20px rgba(228,90,167,.18);
+}
+
+.tool-logo img{
+  width:28px;
+  height:28px;
+  object-fit:contain;
+  display:block;
+}
+
+.tool-name{
+  font-size:14px;
+  color:var(--muted);
+  font-weight:600;
+}
+
+.text-logo{
+  font-weight:800;
+  font-size:22px;
+  font-family:"Poppins", sans-serif;
+}
+
+.text-logo.excel{
+  color:#217346;
+}
+
+.text-logo.word{
+  color:#2B579A;
+}
+
+.text-logo.vscode{
+  color:#007ACC;
+  font-size:16px;
+}
+.tool-logo img{
+  width:30px;
+  height:30px;
+}
+/* effet premium hover logos */
+
+.tool-logo img{
+  width:30px;
+  height:30px;
+  object-fit:contain;
+  display:block;
+  transition: all .35s ease;
+}
+
+.tool-item:hover .tool-logo img{
+  filter: grayscale(0%);
+  transform: scale(1.1);
+}
+
+.text-logo{
+  transition: all .35s ease;
+}
+
+.tool-item:hover .text-logo{
+  transform: scale(1.1);
+}
+
+/* ===== EXPÉRIENCE ===== */
+.experience-intro{
+  max-width: 760px;
+  margin-bottom: 30px;
+}
+
+.experience-kicker{
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: .22em;
+  color: var(--muted);
+}
+
+.experience-title{
+  margin: 0 0 14px 0;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.experience-text{
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.experience-list{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 30px;
+  align-items: stretch;
+}
+
+.experience-item{
+  display:flex;
+  flex-direction:column;
+  height:100%;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  overflow:hidden;
+  background: linear-gradient(180deg, #ffffff, #fffafb);
+  box-shadow: 0 12px 28px rgba(18,18,20,.06);
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+}
+
+.experience-item:hover{
+  transform: translateY(-8px);
+  box-shadow: 0 20px 38px rgba(18,18,20,.10);
+  border-color: rgba(228,90,167,.24);
+}
+
+.experience-media{
+  position:relative;
+  width:100%;
+  height:260px;
+  overflow:hidden;
+  background:#f4f1f2;
+}
+
+.experience-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition: transform .45s ease;
+}
+
+.experience-item:hover .experience-media img{
+  transform: scale(1.04);
+}
+
+.experience-body{
+  padding: 22px;
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
+
+.experience-date{
+  display:inline-block;
+  margin-bottom: 14px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: rgba(228,90,167,.08);
+  border: 1px solid rgba(228,90,167,.16);
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 800;
+  width: fit-content;
+}
+
+.experience-content{
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
+
+.experience-content h3{
+  margin: 0 0 8px 0;
+  font-size: 22px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.experience-content h4{
+  margin: 0 0 14px 0;
+  font-size: 16px;
+  line-height: 1.45;
+  color: #6f6f7b;
+  font-weight: 700;
+}
+
+.experience-content p{
+  margin: 0;
+  line-height: 1.75;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.experience-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top: 18px;
+}
+
+.experience-tags span{
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 8px 10px;
+  border-radius: 999px;
+  background:#fff;
+  border:1px solid var(--line);
+}
+
+@media (max-width: 1100px){
+  .experience-list{
+    grid-template-columns: 1fr;
+  }
+
+  .experience-media{
+    height:240px;
+  }
+}
+
+/* ===== PASSIONS / LOISIRS ===== */
+
+#loisirs .loisirs-intro{
+  max-width: 720px;
+  margin-bottom: 20px;
+}
+
+#loisirs .loisirs-title{
+  margin: 0 0 12px 0;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+#loisirs .loisirs-text{
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.passion-block{
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  align-items: center;
+  gap: 48px;
+  margin-top: 42px;
+}
+
+.passion-block.reverse{
+  grid-template-columns: 1fr 420px;
+}
+
+.passion-block.reverse .passion-image{
+  order: 2;
+}
+
+.passion-block.reverse .passion-text{
+  order: 1;
+}
+
+.passion-image{
+  width: 100%;
+}
+
+.passion-image img{
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+  border-radius: 24px;
+  box-shadow: 0 14px 32px rgba(18,18,20,.08);
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.passion-image img:hover{
+  transform: scale(1.02);
+  box-shadow: 0 18px 38px rgba(18,18,20,.12);
+}
+
+.passion-text{
+  max-width: 520px;
+}
+
+.passion-text h3{
+  margin: 0 0 14px 0;
+  font-size: 24px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.passion-text p{
+  margin: 0 0 14px 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.passion-label{
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(228,90,167,.08);
+  border: 1px solid rgba(228,90,167,.16);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .04em;
+}
+
+@media (max-width: 980px){
+  .passion-block,
+  .passion-block.reverse{
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .passion-block.reverse .passion-image,
+  .passion-block.reverse .passion-text{
+    order: initial;
+  }
+
+  .passion-image img{
+    height: 240px;
+  }
+
+  .passion-text{
+    max-width: 100%;
+  }
+}
+/* ===== LOISIRS / PASSIONS VERSION ÉDITORIALE ===== */
+#loisirs{
+  overflow: hidden;
+}
+
+.loisirs-intro{
+  max-width: 720px;
+  margin-bottom: 34px;
+}
+
+.loisirs-kicker{
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: .22em;
+  color: var(--muted);
+}
+
+.loisirs-title{
+  margin: 0 0 14px 0;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.loisirs-text{
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--muted);
+  max-width: 680px;
+}
+
+.passion-editorial{
+  display: flex;
+  flex-direction: column;
+  gap: 54px;
+  margin-top: 10px;
+}
+
+.passion-row{
+  display: grid;
+  grid-template-columns: 380px minmax(0, 1fr);
+  gap: 52px;
+  align-items: center;
+}
+
+.passion-row.reverse{
+  grid-template-columns: minmax(0, 1fr) 380px;
+}
+
+.passion-row.reverse .passion-photo-wrap{
+  order: 2;
+}
+
+.passion-row.reverse .passion-copy{
+  order: 1;
+}
+
+.passion-photo-wrap{
+  position: relative;
+}
+
+.passion-photo{
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+  border-radius: 26px;
+  box-shadow: 0 16px 34px rgba(18,18,20,.08);
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.passion-photo:hover{
+  transform: scale(1.02);
+  box-shadow: 0 20px 40px rgba(18,18,20,.12);
+}
+
+.passion-sticker{
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.92);
+  border: 1px solid rgba(255,255,255,.95);
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 700;
+  box-shadow: 0 10px 24px rgba(18,18,20,.10);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.passion-copy{
+  max-width: 560px;
+}
+
+.passion-mini{
+  margin: 0 0 12px 0;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .18em;
+  color: var(--accent);
+}
+
+.passion-copy h3{
+  margin: 0 0 18px 0;
+  font-size: 44px;
+  line-height: .98;
+  letter-spacing: -0.04em;
+  color: var(--text);
+}
+
+.passion-copy p{
+  margin: 0 0 14px 0;
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+@media (max-width: 980px){
+  .passion-row,
+  .passion-row.reverse{
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .passion-row.reverse .passion-photo-wrap,
+  .passion-row.reverse .passion-copy{
+    order: initial;
+  }
+
+  .passion-photo{
+    height: 240px;
+  }
+
+  .passion-copy{
+    max-width: 100%;
+  }
+
+  .passion-copy h3{
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 700px){
+  .passion-photo{
+    height: 220px;
+  }
+
+  .passion-copy h3{
+    font-size: 28px;
+  }
+
+  .passion-copy p{
+    font-size: 16px;
+  }
+}
+/* ===== TITRES DE SECTION MODERNES ===== */
+.section-heading{
+  max-width: 760px;
+  margin-bottom: 30px;
+}
+
+.section-heading.center{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-kicker{
+  margin: 0 0 10px 0;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.section-main-title{
+  margin: 0;
+  font-size: clamp(34px, 4vw, 52px);
+  line-height: .95;
+  letter-spacing: -0.04em;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.section-main-line{
+  width: 110px;
+  height: 4px;
+  border-radius: 999px;
+  margin: 18px 0 20px;
+  background: linear-gradient(90deg, var(--accent), rgba(255,134,198,.22));
+}
+
+.section-heading.center .section-main-line{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-main-text{
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--muted);
+  max-width: 820px;
+}
+/* ===== MODALES COMPÉTENCES ===== */
+
+.modal-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+  z-index: 1000;
+}
+
+.modal-overlay.active{
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-box{
+  background: white;
+  border-radius: 24px;
+  padding: 40px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 30px 60px rgba(0,0,0,.2);
+  position: relative;
+}
+
+.modal-close{
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  border: none;
+  background: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.modal-box h3{
+  margin-top: 0;
+  font-size: 28px;
+}
+
+.modal-box p{
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.modal-box ul{
+  margin-top: 14px;
+  padding-left: 18px;
+}
+
+.modal-box li{
+  margin-bottom: 6px;
+}
+.modal-box{
+  transform: scale(.9);
+  transition: .3s;
+}
+
+.modal-overlay.active .modal-box{
+  transform: scale(1);
+}
+/* ===== EFFET LUMIÈRE CARTES COMPÉTENCES ===== */
+
+.skill-card-modern{
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-card-modern::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: radial-gradient(
+    circle at var(--x) var(--y),
+    rgba(228,90,167,.18),
+    transparent 45%
+  );
+  opacity:0;
+  transition: opacity .3s ease;
+}
+
+.skill-card-modern:hover::before{
+  opacity:1;
+}
+/* ===== HERO PHOTO HOVER ===== */
+.portrait-wrap{
+  display:grid;
+  place-items:center;
+  position:relative;
+}
+
+.portrait{
+  width: min(360px, 70vw);
+  aspect-ratio: 1 / 1;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 10px solid #fff;
+  box-shadow: var(--shadow);
+  transition: transform .4s ease, box-shadow .4s ease, filter .4s ease;
+}
+
+.portrait-wrap:hover .portrait{
+  transform: scale(1.03);
+  box-shadow: 0 22px 46px rgba(18,18,20,.14);
+  filter: brightness(1.03);
+}
+
+.badge{
+  position:absolute;
+  bottom: 18px;
+  right: 10px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--line);
+  font-weight:800;
+  color: var(--accent);
+  box-shadow: 0 10px 24px rgba(18,18,20,.12);
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.portrait-wrap:hover .badge{
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(18,18,20,.16);
+}
+/* délais d'apparition */
+.skill-card-modern:nth-child(1){ transition-delay: .05s; }
+.skill-card-modern:nth-child(2){ transition-delay: .12s; }
+.skill-card-modern:nth-child(3){ transition-delay: .19s; }
+.skill-card-modern:nth-child(4){ transition-delay: .26s; }
+.skill-card-modern:nth-child(5){ transition-delay: .33s; }
+
+/* ===== CONTACT VERSION PROPRE ===== */
+.contact-card-section{
+  padding: 30px;
+}
+
+.contact-new{
+  display:grid;
+  grid-template-columns: 1fr 480px;
+  gap: 34px;
+  align-items: start;
+  padding: 42px;
+  border-radius: 34px;
+  background: linear-gradient(135deg, #f4e8ed, #fbf5f7);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-new::before{
+  content:"";
+  position:absolute;
+  right:-120px;
+  top:-120px;
+  width:260px;
+  height:260px;
+  border-radius:50%;
+  background: radial-gradient(circle, rgba(228,90,167,.10), transparent 72%);
+  pointer-events:none;
+}
+
+.contact-new-left{
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  gap:28px;
+}
+.contact-new-infos{
+  margin-top: 10px;
+}
+
+.contact-title-block{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+
+.contact-new-infos{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:14px;
+  margin-top: -30px;
+}
+
+.contact-cv-card{
+  width:100%;
+  max-width:600px;
+  background:#fff;
+  border-radius:30px;
+  padding:34px 30px;
+  box-shadow: 0 20px 44px rgba(18,18,20,.10);
+  text-align:left;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.contact-info-card{
+  background: rgba(255,255,255,.82);
+  border:1px solid rgba(18,18,20,.06);
+  border-radius:22px;
+  padding:18px;
+  box-shadow: 0 10px 24px rgba(18,18,20,.04);
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease, background .28s ease;
+}
+
+.contact-info-card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 18px 34px rgba(18,18,20,.10);
+  border-color: rgba(228,90,167,.24);
+  background: #fff;
+}
+
+.contact-info-label{
+  display:block;
+  margin-bottom:8px;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#8c8c96;
+}
+
+.contact-info-value{
+  font-size:16px;
+  font-weight:700;
+  color: var(--text);
+  line-height:1.45;
+}
+
+.contact-info-value a{
+  color: var(--text);
+  text-decoration:none;
+}
+
+.contact-info-value a:hover{
+  color: var(--accent);
+}
+
+.contact-new-right{
+  display:flex;
+  align-items:center;
+  justify-content:stretch;
+}
+
+.contact-cv-card{
+  width:100%;
+  max-width:none;
+  background:#fff;
+  border-radius:30px;
+  padding:34px 30px;
+  box-shadow: 0 20px 44px rgba(18,18,20,.10);
+  text-align:left;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.contact-cv-card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 28px 54px rgba(18,18,20,.14);
+}
+
+.contact-cv-card h3{
+  margin:0 0 14px 0;
+  font-size: clamp(34px, 4vw, 52px);
+  line-height:.95;
+  letter-spacing:-0.04em;
+  color: var(--text);
+}
+
+.contact-cv-card p{
+  margin:0 0 24px 0;
+  font-size:17px;
+  line-height:1.7;
+  color: var(--muted);
+}
+
+.contact-cv-buttons{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.contact-primary-btn,
+.contact-secondary-btn{
+  min-height:56px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:16px;
+  text-decoration:none;
+  font-weight:700;
+  font-size:15px;
+  transition: all .25s ease;
+}
+
+.contact-primary-btn{
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color:#111 !important;
+  box-shadow: 0 14px 28px rgba(228,90,167,.22);
+}
+
+.contact-primary-btn:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 18px 34px rgba(228,90,167,.28);
+  color:#111 !important;
+}
+
+.contact-primary-btn:visited,
+.contact-primary-btn:active{
+  color:#111 !important;
+}
+
+.contact-secondary-btn{
+  background:#fff;
+  color: var(--text);
+  border:1px solid rgba(18,18,20,.08);
+}
+
+.contact-secondary-btn:hover{
+  transform: translateY(-3px);
+  border-color: rgba(228,90,167,.22);
+  color: var(--accent);
+  box-shadow: 0 12px 24px rgba(18,18,20,.06);
+}
+
+@media (max-width: 980px){
+  .contact-new{
+    grid-template-columns:1fr;
+    padding:28px 22px;
+  }
+
+  .contact-new-infos{
+    grid-template-columns:1fr;
+  }
+
+  .contact-contact-title{
+    font-size:52px;
+  }
+
+  .contact-cv-card{
+    max-width:100%;
+  }
+}
+.contact-new-left{
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  gap:34px;
+  align-items:flex-start;
+  min-width: 0;
+}
+#contact .contact-title-block .about-title{
+  font-size: 72px !important;
+  line-height: 0.92 !important;
+  margin: 0;
+}
+
+#contact .contact-title-block{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+
+@media (max-width: 1100px){
+  #contact .contact-title-block .about-title{
+    font-size: 62px !important;
+  }
+}
+
+@media (max-width: 700px){
+  #contact .contact-title-block .about-title{
+    font-size: 44px !important;
+  }
+}
+.about-icon svg{
+  width: 20px;
+  height: 20px;
+  stroke: #e45aa7;
+  stroke-width: 2.2;
+}
+.passion-image img,
+.experience-media img,
+.portrait{
+  opacity: 0;
+  transform: translateY(30px) scale(.98);
+  transition: opacity .9s ease, transform .9s ease;
+}
+
+.passion-image img.visible,
+.experience-media img.visible,
+.portrait.visible{
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.section-heading{
+  opacity:0;
+  transform:translateY(30px);
+  transition:.8s;
+}
+
+.section-heading.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+/* ===== ANIMATIONS SCROLL PREMIUM ===== */
+.reveal,
+.section-heading,
+.passion-image img,
+.experience-media img,
+.portrait,
+.about-card,
+.timeline-card,
+.skill-card-modern,
+.tool-item,
+.contact-info-card,
+.contact-cv-card{
+  opacity: 0;
+  transform: translateY(36px);
+  transition:
+    opacity .9s cubic-bezier(.22,.61,.36,1),
+    transform .9s cubic-bezier(.22,.61,.36,1);
+  will-change: opacity, transform;
+}
+
+.visible{
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* petit décalage élégant */
+.about-card:nth-child(1),
+.skill-card-modern:nth-child(1),
+.tool-item:nth-child(1),
+.contact-info-card:nth-child(1){
+  transition-delay: .05s;
+}
+
+.about-card:nth-child(2),
+.skill-card-modern:nth-child(2),
+.tool-item:nth-child(2),
+.contact-info-card:nth-child(2){
+  transition-delay: .12s;
+}
+
+.skill-card-modern:nth-child(3),
+.tool-item:nth-child(3),
+.contact-info-card:nth-child(3){
+  transition-delay: .18s;
+}
+
+.skill-card-modern:nth-child(4),
+.tool-item:nth-child(4),
+.contact-info-card:nth-child(4){
+  transition-delay: .24s;
+}
+
+.skill-card-modern:nth-child(5),
+.tool-item:nth-child(5){
+  transition-delay: .30s;
+}
+
+.tool-item:nth-child(6){
+  transition-delay: .36s;
+}
+
+.tool-item:nth-child(7){
+  transition-delay: .42s;
+}
+
+/* images un peu plus premium */
+.passion-image img,
+.experience-media img,
+.portrait{
+  transform: translateY(36px) scale(.98);
+}
+
+.passion-image img.visible,
+.experience-media img.visible,
+.portrait.visible{
+  transform: translateY(0) scale(1) !important;
+}
+.tool-logo img{
+  opacity: 1 !important;
+  transform: none !important;
+}
+.footer{
+text-align:center;
+padding:30px;
+margin-top:60px;
+font-size:14px;
+color:#777;
+border-top:1px solid #eee;
+}
+.footer{
+text-align:center;
+padding:30px;
+margin-top:60px;
+font-size:14px;
+color:#777;
+border-top:1px solid #eee;
+}
+
+.footer-links{
+margin-top:10px;
+}
+
+.footer-links a{
+margin:0 10px;
+text-decoration:none;
+color:#777;
+transition:0.2s;
+}
+
+.footer-links a:hover{
+color:#e86ca5;
+}
+nav a{
+position:relative;
+text-decoration:none;
+}
+
+nav a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-4px;
+width:0;
+height:2px;
+background:#e86ca5;
+transition:0.3s;
+}
+
+nav a:hover::after{
+width:100%;
+}
+.reveal{
+opacity:0;
+transform: translateY(30px);
+transition: all 0.6s ease;
+}
+
+.reveal.active{
+opacity:1;
+transform: translateY(0);
+}
+  </style>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+  <!-- NAV -->
+<div class="topbar">
+  <div class="navpill">
+    <div class="brand">
+      <div class="brand-badge">LD</div>
+      <div>Portfolio</div>
+    </div>
+
+    <div class="links">
+      <a href="#apropos">À propos</a>
+      <a href="#parcours">Parcours</a>
+      <a href="#competences">Compétences</a>
+      <a href="#outils">Boîte à outils</a>
+      <a href="#experience">Expérience</a>
+      <a href="#loisirs">Loisirs</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <div class="cta">
+      <a class="btn" href="#contact">Me contacter</a>
+      <a class="btn primary" href="#experience">Mes expériences</a>
+    </div>
+  </div>
+</div>
+
+  <!-- HERO -->
+  <main class="container hero">
+    <div class="hero-grid">
+  <div class="hero-copy">
+    <p class="eyebrow">Étudiante en BUT TC — Parcours MDEE</p>
+    <h1 class="title">Bonjour,<br><span class="accent">je suis Louna.</span></h1>
+    <p class="subtitle">
+      En alternance chez <strong>AJL Mariage</strong>. Je développe des compétences en marketing et marketing digital,
+      communication, e-business et gestion de projet.
+    </p>
+
+    <div class="chips">
+      <span class="chip">Marketing</span>
+      <span class="chip">Marketing digital</span>
+      <span class="chip">Communication</span>
+      <span class="chip">E-business</span>
+      <span class="chip">Entrepreneuriat</span>
+    </div>
+  </div>
+
+  <div class="portrait-wrap">
+    <img class="portrait" src="photo.png" alt="Photo de Louna">
+    <div class="badge">BUT TC</div>
+  </div>
+</div>
+
+<div class="hero-marquee">
+  <div class="hero-marquee-track">
+    <span>Marketing digital</span>
+    <span>•</span>
+    <span>E-business</span>
+    <span>•</span>
+    <span>Gestion de projet</span>
+    <span>•</span>
+    <span>Création de contenu</span>
+    <span>•</span>
+    <span>Communication</span>
+    <span>•</span>
+    <span>Relation client</span>
+    <span>•</span>
+
+    <span>Marketing digital</span>
+    <span>•</span>
+    <span>E-business</span>
+    <span>•</span>
+    <span>Gestion de projet</span>
+    <span>•</span>
+    <span>Création de contenu</span>
+    <span>•</span>
+    <span>Communication</span>
+    <span>•</span>
+    <span>Relation client</span>
+    <span>•</span>
+  </div>
+</div>
+
+    <!-- SECTIONS -->
+    <section id="apropos" class="section reveal">
+     <div class="about-grid">
+
+  <div class="about-left">
+    <p class="about-kicker">À PROPOS</p>
+    <h2 class="about-title">Qui<br> suis-<span class="about-accent">je</span> ?</h2>
+    <div class="about-line"></div>
+    <p class="about-quote">“Curieuse, créative et toujours prête à transformer une idée en projet.”</p>
+  </div>
+
+  <div class="about-right">
+    <p class="about-text">
+      Je m’appelle <strong>Louna Diliberto</strong>, étudiante en <strong>BUT Techniques de Commercialisation</strong>
+      (parcours <strong>Marketing Digital, E-business & Entrepreneuriat</strong>) et en alternance chez
+      <strong>AJL Mariage</strong>. J’aime transformer des idées en actions concrètes : contenus, communication,
+      analyse et recommandations.
+    </p>
+
+    <div class="about-cards">
+      <div class="about-card">
+       <div class="about-icon">
+  <i data-lucide="zap"></i>
+</div>
+        <h3>Qualités</h3>
+        <div class="pill-row">
+          <span class="pill">Autonome</span>
+          <span class="pill">Organisée</span>
+          <span class="pill">Polyvalente</span>
+          <span class="pill">Persévérante</span>
+        </div>
+      </div>
+
+      <div class="about-card">
+        <div class="about-icon">
+  <i data-lucide="sparkles"></i>
+</div>
+        <h3>Centres d’intérêt</h3>
+        <div class="pill-row">
+          <span class="pill">Mode</span>
+          <span class="pill">Voyage</span>
+          <span class="pill">Tendances</span>
+          <span class="pill">Création</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+    </section>
+
+<section id="parcours" class="section reveal">
+  <div class="section-heading">
+  <p class="section-kicker">Parcours</p>
+  <h2 class="section-main-title">Mon parcours</h2>
+  <div class="section-main-line"></div>
+  <p class="section-main-text">
+    Du baccalauréat général à mon projet de master, je construis progressivement
+    un profil tourné vers le commerce, le marketing et le digital.
+  </p>
+</div>
+
+  <div class="timeline">
+    <div class="timeline-line"></div>
+
+    <div class="timeline-step">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <span class="timeline-date">2023</span>
+        <h3>Baccalauréat général</h3>
+        <h4>Spécialités HGGSP & SES</h4>
+        <p>
+          Formation générale orientée vers l’analyse,
+          la compréhension des enjeux économiques et sociétaux,
+          ainsi que le développement de capacités rédactionnelles
+          et argumentatives.
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-step">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <span class="timeline-date">2023 — 2026</span>
+        <h3>BUT Techniques de<br>Commercialisation</h3>
+        <h4>Parcours Marketing Digital, E-business & Entrepreneuriat</h4>
+<p>
+  Acquisition des fondamentaux du commerce, du marketing,
+  de la communication et de la gestion de projet.
+  Développement progressif de compétences en stratégie,
+  digital et valorisation d’une offre.
+</p>
+      </div>
+    </div>
+
+    <div class="timeline-step">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <span class="timeline-date">Alternance</span>
+        <h3>AJL Mariage</h3>
+        <h4>Communication, vente, marketing & digital</h4>
+        <p>
+          Expérience polyvalente mêlant relation client, stratégie de communication,
+          création de contenus, gestion des réseaux sociaux, veille digitale,
+          organisation d’événements et participation au développement du site web.
+        </p>
+      </div>
+    </div>
+
+    <div class="timeline-step">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <span class="timeline-date">Projet</span>
+        <h3>Vers le master</h3>
+        <h4>Marketing Management, Branding & Expérience Client</h4>
+        <p>
+          Poursuivre mes études dans un master davantage spécialisé en marketing
+          afin de renforcer mes compétences stratégiques, créatives
+          et opérationnelles.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+ <section id="competences" class="section reveal">
+  <div class="skills-header">
+    <p class="skills-kicker">COMPÉTENCES</p>
+    <h2 class="skills-main-title">Compétences clés</h2>
+    <div class="skills-main-line"></div>
+    <p class="skills-main-text">
+      Une sélection de compétences développées à travers ma formation,
+      mon alternance et mes expériences professionnelles, entre marketing,
+      communication, relation client et digital.
+    </p>
+    <p class="skills-hint">Clique sur une carte pour en savoir plus.</p>
+  </div>
+
+  <div class="skills-cards-grid">
+    <button class="skill-card-modern" data-modal="modal-marketing">
+      <span class="skill-number">01</span>
+      <h3>Marketing</h3>
+      <p>Analyse, positionnement, offre et réflexion stratégique.</p>
+    </button>
+
+    <button class="skill-card-modern" data-modal="modal-marketing-digital">
+      <span class="skill-number">02</span>
+      <h3>Marketing digital</h3>
+      <p>Contenus, visibilité en ligne, réseaux sociaux et performance.</p>
+    </button>
+
+    <button class="skill-card-modern" data-modal="modal-communication">
+      <span class="skill-number">03</span>
+      <h3>Communication</h3>
+      <p>Message, image de marque, supports visuels et cohérence.</p>
+    </button>
+
+    <button class="skill-card-modern" data-modal="modal-vente">
+      <span class="skill-number">04</span>
+      <h3>Vente & relation client</h3>
+      <p>Écoute, conseil, accompagnement et création de confiance.</p>
+    </button>
+
+    <button class="skill-card-modern" data-modal="modal-ebusiness">
+      <span class="skill-number">05</span>
+      <h3>E-business</h3>
+      <p>Site web, parcours client, visibilité et logique commerciale.</p>
+    </button>
+  </div>
+</section>
+
+<section id="outils" class="section reveal">
+  <div class="section-heading center">
+  <p class="section-kicker">Outils</p>
+  <h2 class="section-main-title">Boîte à outils</h2>
+  <div class="section-main-line"></div>
+  <p class="section-main-text">
+    Les outils que j’utilise dans mes études, mon alternance et mes projets
+    pour créer, organiser et développer ma visibilité digitale.
+  </p>
+</div>
+
+  <div class="tools-grid">
+    <div class="tool-item">
+      <div class="tool-logo text-logo excel">X</div>
+      <div class="tool-name">Excel</div>
+    </div>
+
+    <div class="tool-item">
+      <div class="tool-logo text-logo word">W</div>
+      <div class="tool-name">Word</div>
+    </div>
+
+  <div class="tool-item">
+  <div class="tool-logo text-logo" style="color:#00C4CC;font-weight:800;">C</div>
+  <div class="tool-name">Canva</div>
+</div>
+
+    <div class="tool-item">
+      <div class="tool-logo">
+        <img src="https://cdn.simpleicons.org/figma/F24E1E" alt="Figma">
+      </div>
+      <div class="tool-name">Figma</div>
+    </div>
+
+    <div class="tool-item">
+      <div class="tool-logo">
+        <img src="https://cdn.simpleicons.org/wix/000000" alt="Wix">
+      </div>
+      <div class="tool-name">Wix</div>
+    </div>
+
+    <div class="tool-item">
+      <div class="tool-logo">
+        <img src="https://cdn.simpleicons.org/wordpress/21759B" alt="WordPress">
+      </div>
+      <div class="tool-name">WordPress</div>
+    </div>
+
+    <div class="tool-item">
+      <div class="tool-logo text-logo vscode">&lt;/&gt;</div>
+      <div class="tool-name">VS Code</div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="section reveal">
+  <div class="section-heading">
+  <p class="section-kicker">Expérience</p>
+  <h2 class="section-main-title">Mes expériences</h2>
+  <div class="section-main-line"></div>
+  <p class="section-main-text">
+    Des expériences dans la vente, la communication, l’événementiel et le digital,
+    qui m’ont permis de développer ma polyvalence, mon sens du relationnel
+    et ma capacité d’adaptation.
+  </p>
+</div>
+
+  <div class="experience-list">
+
+    <article class="experience-item">
+      <div class="experience-media">
+        <img src="ajl-mariage.png" alt="Boutique AJL Mariage">
+      </div>
+
+      <div class="experience-body">
+        <div class="experience-date">Déc. 2023 — Juil. 2026</div>
+
+        <div class="experience-content">
+          <h3>AJL Mariage</h3>
+          <h4>Alternance — Communication, vente, marketing & digital</h4>
+<p>
+  Identification des besoins des clientes et accompagnement dans leur parcours d’achat.
+  Participation à la stratégie de communication et de marketing digital de la boutique :
+  création de contenus, mise en valeur des produits et veille sur les tendances du secteur.
+  Contribution à la création et à la mise en ligne du site web, gestion des réseaux sociaux,
+  organisation d’événements en boutique et accueil de la clientèle.
+</p>
+        </div>
+
+        <div class="experience-tags">
+          <span>Marketing digital</span>
+          <span>Marketing</span>
+          <span>Communication</span>
+          <span>Vente</span>
+          <span>Site Web</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="experience-item">
+      <div class="experience-media">
+        <img src="glaces-ruiz.jpg" alt="Camion Glaces Ruiz à Cambrai">
+      </div>
+
+      <div class="experience-body">
+        <div class="experience-date">Juin 2023 — Août 2024</div>
+
+        <div class="experience-content">
+          <h3>Glaces Ruiz</h3>
+          <h4>Contrat extra — Relation client & vente</h4>
+          <p>
+            Vente de glaces en camion et en magasin, relation client,
+            encaissement, contact direct avec la clientèle
+            et participation à l’entretien des locaux.
+          </p>
+        </div>
+
+        <div class="experience-tags">
+          <span>Relation client</span>
+          <span>Vente</span>
+          <span>Encaissement</span>
+          <span>Polyvalence</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="experience-item">
+      <div class="experience-media">
+        <img src="theatre-cambrai.jpg" alt="Théâtre de Cambrai">
+      </div>
+
+      <div class="experience-body">
+        <div class="experience-date">Juil. 2023 — Août 2023</div>
+
+        <div class="experience-content">
+          <h3>Amicale du personnel — Mairie de Cambrai</h3>
+          <h4>Contrat extra — Accueil & événementiel</h4>
+          <p>
+            Gestion de clientèle au théâtre de Cambrai, hôtesse d’accueil
+            et participation à la gestion des événements sur site,
+            dans un environnement dynamique au contact du public.
+          </p>
+        </div>
+
+        <div class="experience-tags">
+          <span>Accueil</span>
+          <span>Événementiel</span>
+          <span>Public</span>
+          <span>Organisation</span>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section id="loisirs" class="section reveal">
+  <div class="section-heading">
+  <p class="section-kicker">Personnel</p>
+  <h2 class="section-main-title">Mes passions</h2>
+  <div class="section-main-line"></div>
+  <p class="section-main-text">
+    Deux univers qui occupent une place importante dans ma vie
+    et nourrissent ma sensibilité, ma créativité et mon regard.
+  </p>
+</div>
+
+  <div class="passion-block">
+    <div class="passion-image">
+      <img src="danse.jpg" alt="Danse">
+    </div>
+
+    <div class="passion-text">
+      <span class="passion-label">Depuis plus de 10 ans</span>
+      <h3>La danse</h3>
+      <p>
+        Je pratique la danse depuis plus de <strong>10 ans</strong>.
+        Cette discipline m’a appris la rigueur, le sens du rythme
+        et l’expression personnelle.
+      </p>
+      <p>
+        C’est une passion qui m’aide à me dépasser, à canaliser mon énergie
+        et à développer une vraie sensibilité artistique.
+      </p>
+    </div>
+  </div>
+
+  <div class="passion-block reverse">
+    <div class="passion-image">
+      <img src="mode.jpg" alt="Mode">
+    </div>
+
+    <div class="passion-text">
+      <span class="passion-label">Depuis toute petite</span>
+      <h3>La mode</h3>
+      <p>
+        La mode est une passion qui m’accompagne depuis <strong>toute petite</strong>.
+        J’aime les univers visuels, les détails, les matières et la manière
+        dont une identité peut se construire à travers un style.
+      </p>
+      <p>
+        Cet intérêt rejoint naturellement mon attirance pour l’image,
+        la communication et l’esthétique.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<section id="contact" class="section reveal contact-card-section">
+  <div class="contact-new">
+
+    <div class="contact-new-left">
+      <div class="contact-title-block">
+  <p class="about-kicker">CONTACT</p>
+  <h2 class="about-title">
+    Restons<br>en <span class="about-accent">contact</span>
+  </h2>
+  <div class="about-line"></div>
+</div>
+
+      <div class="contact-new-infos">
+        <div class="contact-info-card">
+          <span class="contact-info-label">Email</span>
+          <div class="contact-info-value">
+            <a href="mailto:dilibertolouna@orange.fr">dilibertolouna@orange.fr</a>
+          </div>
+        </div>
+
+        <div class="contact-info-card">
+          <span class="contact-info-label">Téléphone</span>
+          <div class="contact-info-value">06 65 21 05 83</div>
+        </div>
+
+        <div class="contact-info-card">
+          <span class="contact-info-label">Localisation</span>
+          <div class="contact-info-value">Cambrai</div>
+        </div>
+
+        <div class="contact-info-card">
+          <span class="contact-info-label">LinkedIn</span>
+          <div class="contact-info-value">
+            <a href="https://www.linkedin.com/in/louna-diliberto-31218528a/" target="_blank">Louna Diliberto</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-new-right">
+      <div class="contact-cv-card">
+        <h3>Mon CV</h3>
+        <p>
+          Retrouvez mon parcours, mes expériences et mes compétences
+          dans un seul document clair et complet.
+        </p>
+
+        <div class="contact-cv-buttons">
+          <a href="cv-louna-diliberto.pdf" class="contact-primary-btn" download>
+            Télécharger mon CV
+          </a>
+          <a href="mailto:dilibertolouna@orange.fr" class="contact-secondary-btn">
+            Me contacter par mail
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<footer class="footer">
+  <p>© 2025 — Louna Diliberto</p>
+
+  <div class="footer-links">
+    <a href="mailto:dilibertolouna@orange.fr">Email</a>
+    <a href="https://www.linkedin.com/in/louna-diliberto" target="_blank">LinkedIn</a>
+  </div>
+</footer>
+
+</main>
+
+<script>
+  const animatedElements = document.querySelectorAll(`
+    .reveal,
+    .section-heading,
+    .passion-image img,
+    .experience-media img,
+    .portrait,
+    .about-card,
+    .timeline-card,
+    .skill-card-modern,
+    .tool-item,
+    .contact-info-card,
+    .contact-cv-card
+  `);
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.15,
+    rootMargin: "0px 0px -40px 0px"
+  });
+
+  animatedElements.forEach(el => observer.observe(el));
+</script>
+
+<div class="modal-overlay" id="modal-marketing">
+  <div class="modal-box">
+    <button class="modal-close">×</button>
+    <p class="modal-kicker">COMPÉTENCE</p>
+    <h3>Marketing</h3>
+    <p>
+      J’aime analyser avant d’agir. Avant de valoriser une offre ou de proposer une action,
+      je cherche à comprendre le marché, les attentes des clients et le positionnement
+      le plus cohérent pour l’entreprise.
+    </p>
+    <p>
+      Ma formation et mes expériences m’ont permis de développer une approche structurée
+      du marketing, en réfléchissant à la cible, à la proposition de valeur
+      et à la manière de rendre une offre plus attractive.
+    </p>
+    <ul>
+      <li>Analyse du marché et de l’environnement</li>
+      <li>Identification des cibles</li>
+      <li>Positionnement d’une offre</li>
+      <li>Réflexion autour du mix marketing</li>
+      <li>Veille sur les tendances</li>
+    </ul>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-marketing-digital">
+  <div class="modal-box">
+    <button class="modal-close">×</button>
+    <p class="modal-kicker">COMPÉTENCE</p>
+    <h3>Marketing digital</h3>
+    <p>
+      Je m’intéresse particulièrement à la visibilité en ligne, à la création de contenu
+      et à la manière dont les outils digitaux peuvent soutenir le développement
+      d’une activité.
+    </p>
+    <p>
+      À travers mon alternance, je participe à la présence digitale d’une boutique :
+      contenus, mise en valeur de l’offre, réseaux sociaux et réflexion sur l’image
+      transmise en ligne.
+    </p>
+    <ul>
+      <li>Création de contenus digitaux</li>
+      <li>Réseaux sociaux</li>
+      <li>Valorisation d’une offre en ligne</li>
+      <li>Compréhension des indicateurs de performance</li>
+      <li>Visibilité et attractivité digitale</li>
+    </ul>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-communication">
+  <div class="modal-box">
+    <button class="modal-close">×</button>
+    <p class="modal-kicker">COMPÉTENCE</p>
+    <h3>Communication</h3>
+    <p>
+      J’aime transmettre un message de manière claire, cohérente et esthétique.
+      La communication est pour moi un levier essentiel pour valoriser une marque,
+      une offre ou une expérience client.
+    </p>
+    <p>
+      Je travaille autant sur le fond que sur la forme : choix des supports,
+      cohérence visuelle, création de contenus et adaptation du ton selon la cible.
+    </p>
+    <ul>
+      <li>Stratégie de communication</li>
+      <li>Création de supports visuels et rédactionnels</li>
+      <li>Cohérence de l’image de marque</li>
+      <li>Communication digitale</li>
+      <li>Mise en valeur d’un univers</li>
+    </ul>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-vente">
+  <div class="modal-box">
+    <button class="modal-close">×</button>
+    <p class="modal-kicker">COMPÉTENCE</p>
+    <h3>Vente & relation client</h3>
+    <p>
+      Le contact humain est un point fort de mon parcours. J’aime écouter,
+      comprendre les besoins, conseiller et accompagner chaque client
+      de façon personnalisée.
+    </p>
+    <p>
+      Mes expériences en boutique et en vente m’ont permis de développer
+      un bon sens du relationnel, de l’écoute active et de la mise en confiance.
+    </p>
+    <ul>
+      <li>Accueil et conseil client</li>
+      <li>Écoute des besoins</li>
+      <li>Argumentation adaptée</li>
+      <li>Création d’un climat de confiance</li>
+      <li>Fidélisation et satisfaction client</li>
+    </ul>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-ebusiness">
+  <div class="modal-box">
+    <button class="modal-close">×</button>
+    <p class="modal-kicker">COMPÉTENCE</p>
+    <h3>E-business</h3>
+    <p>
+      Je développe progressivement ma compréhension du commerce en ligne
+      à travers la création de site web, la visibilité digitale
+      et la valorisation d’une activité sur internet.
+    </p>
+    <p>
+      Cette compétence mêle logique commerciale, expérience utilisateur
+      et présence digitale, avec l’objectif de proposer un parcours plus fluide
+      et plus cohérent pour le client.
+    </p>
+    <ul>
+      <li>Création et mise à jour de site web</li>
+      <li>Compréhension du parcours client</li>
+      <li>Valorisation d’une activité en ligne</li>
+      <li>Logique e-commerce</li>
+      <li>Organisation d’un projet digital</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  const skillCards = document.querySelectorAll('[data-modal]');
+  const modalOverlays = document.querySelectorAll('.modal-overlay');
+  const modalCloses = document.querySelectorAll('.modal-close');
+
+  skillCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const modalId = card.getAttribute('data-modal');
+      const modal = document.getElementById(modalId);
+      if (modal) modal.classList.add('active');
+    });
+  });
+
+  modalCloses.forEach(button => {
+    button.addEventListener('click', () => {
+      button.closest('.modal-overlay').classList.remove('active');
+    });
+  });
+
+  modalOverlays.forEach(overlay => {
+    overlay.addEventListener('click', (e) => {
+      if (e.target === overlay) {
+        overlay.classList.remove('active');
+      }
+    });
+  });
+</script>
+<script>
+ const cards = document.querySelectorAll('.skill-card-modern');
+
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      card.style.setProperty('--x', `${x}px`);
+      card.style.setProperty('--y', `${y}px`);
+    });
+  });
+</script>
+<script>
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".links a");
+
+window.addEventListener("scroll", () => {
+  let current = "";
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 120;
+
+    if (scrollY >= sectionTop) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove("active");
+
+    if (link.getAttribute("href") === "#" + current) {
+      link.classList.add("active");
+    }
+  });
+});
+</script>
+
+<script>
+  const glowCards = document.querySelectorAll(
+    '.about-card, .timeline-card, .skill-card, .experience-item, .loisir-card'
+  );
+
+  glowCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      card.style.setProperty('--x', `${x}px`);
+      card.style.setProperty('--y', `${y}px`);
+    });
+  });
+</script>
+<script>
+const skillCardsGlow = document.querySelectorAll('.skill-card-modern');
+
+skillCardsGlow.forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    card.style.setProperty('--x', `${x}px`);
+    card.style.setProperty('--y', `${y}px`);
+  });
+});
+</script>
+<script>
+window.addEventListener("scroll", function(){
+  const reveals = document.querySelectorAll(".reveal");
+
+  reveals.forEach(function(reveal){
+    const windowHeight = window.innerHeight;
+    const elementTop = reveal.getBoundingClientRect().top;
+    const visible = 100;
+
+    if(elementTop < windowHeight - visible){
+     reveal.classList.add("visible");
+    }
+  });
+});
+</script>
+
+<script>
+  lucide.createIcons();
+</script>
+</body>
+</html>
