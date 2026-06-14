@@ -2009,6 +2009,33 @@ transform: translateY(0);
     font-size: 22px;
   }
 }
+
+/* CORRECTION POPUP COMPÉTENCES */
+.modal-overlay{
+  align-items: flex-start;
+  padding: 40px 0;
+  overflow-y: auto;
+}
+
+.modal-box{
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 40px;
+}
+
+/* Scroll plus propre dans la popup */
+.modal-box::-webkit-scrollbar{
+  width: 8px;
+}
+
+.modal-box::-webkit-scrollbar-thumb{
+  background: #e45aa7;
+  border-radius: 999px;
+}
+
+.modal-box::-webkit-scrollbar-track{
+  background: #f3f3f3;
+}
   </style>
 
 <script src="https://unpkg.com/lucide@latest"></script>
@@ -2047,8 +2074,7 @@ transform: translateY(0);
     <p class="eyebrow">Étudiante en BUT TC — Parcours MDEE</p>
     <h1 class="title">Bonjour,<br><span class="accent">je suis Louna.</span></h1>
     <p class="subtitle">
-      En alternance chez <strong>AJL Mariage</strong>. Je développe des compétences en marketing et marketing digital,
-      communication, e-business et gestion de projet.
+      En alternance chez <strong>AJL Mariage</strong>. Je développe des compétences en marketing digital, e-commerce, création de contenu, SEO, gestion de site internet et analyse des performances.
     </p>
 
     <div class="chips">
@@ -2209,8 +2235,8 @@ transform: translateY(0);
       <div class="timeline-dot"></div>
       <div class="timeline-card">
         <span class="timeline-date">Projet</span>
-        <h3>Vers le master</h3>
-        <h4>Marketing Management, Branding & Expérience Client</h4>
+       <h3>Projet professionnel</h3>
+<h4>Marketing digital & E-commerce</h4>
         <p>
           Poursuivre mes études dans un master davantage spécialisé en marketing
           afin de renforcer mes compétences stratégiques, créatives
@@ -2349,10 +2375,11 @@ transform: translateY(0);
           <h4>Alternance — Communication, vente, marketing & digital</h4>
 <p>
   Identification des besoins des clientes et accompagnement dans leur parcours d’achat.
-  Participation à la stratégie de communication et de marketing digital de la boutique :
-  création de contenus, mise en valeur des produits et veille sur les tendances du secteur.
-  Contribution à la création et à la mise en ligne du site web, gestion des réseaux sociaux,
-  organisation d’événements en boutique et accueil de la clientèle.
+  Participation à la stratégie de communication et de marketing digital de la boutique à travers la création de contenus, la mise en valeur des collections et la gestion des réseaux sociaux.
+
+  Création complète du site internet d’AJL Mariage à l’aide de VS Code (HTML/CSS), amélioration de l’expérience utilisateur, mise en valeur des collections et optimisation de la visibilité en ligne.
+
+  Organisation d’événements en boutique, suivi des actions de communication et accueil de la clientèle.
 </p>
         </div>
 
@@ -2581,24 +2608,27 @@ transform: translateY(0);
   <div class="modal-box">
     <button class="modal-close">×</button>
     <p class="modal-kicker">COMPÉTENCE</p>
-    <h3>Marketing</h3>
-    <p>
-      J’aime analyser avant d’agir. Avant de valoriser une offre ou de proposer une action,
-      je cherche à comprendre le marché, les attentes des clients et le positionnement
-      le plus cohérent pour l’entreprise.
-    </p>
-    <p>
-      Ma formation et mes expériences m’ont permis de développer une approche structurée
-      du marketing, en réfléchissant à la cible, à la proposition de valeur
-      et à la manière de rendre une offre plus attractive.
-    </p>
-    <ul>
-      <li>Analyse du marché et de l’environnement</li>
-      <li>Identification des cibles</li>
-      <li>Positionnement d’une offre</li>
-      <li>Réflexion autour du mix marketing</li>
-      <li>Veille sur les tendances</li>
-    </ul>
+<p>
+Au cours de mon BUT Techniques de Commercialisation et de mon alternance chez AJL Mariage, j’ai développé une solide compréhension des mécanismes marketing permettant de valoriser une offre et de répondre aux attentes des consommateurs.
+
+J’ai appris à analyser un marché, identifier les besoins des clients, étudier la concurrence et proposer des actions adaptées aux objectifs de l’entreprise.
+
+J’ai également participé à différents projets universitaires mobilisant des outils stratégiques tels que le SWOT, le PESTEL, le Business Model Canvas ou encore les matrices d’analyse concurrentielle.
+
+</p>
+
+<ul>
+<li>Analyse de marché</li>
+<li>Études de concurrence</li>
+<li>Segmentation et ciblage</li>
+<li>Positionnement de marque</li>
+<li>Marketing stratégique</li>
+<li>Veille concurrentielle</li>
+<li>Business Model Canvas</li>
+<li>SWOT et PESTEL</li>
+<li>Analyse du comportement consommateur</li>
+<li>Préconisations marketing</li>
+</ul>
   </div>
 </div>
 
@@ -2606,24 +2636,41 @@ transform: translateY(0);
   <div class="modal-box">
     <button class="modal-close">×</button>
     <p class="modal-kicker">COMPÉTENCE</p>
-    <h3>Marketing digital</h3>
-    <p>
-      Je m’intéresse particulièrement à la visibilité en ligne, à la création de contenu
-      et à la manière dont les outils digitaux peuvent soutenir le développement
-      d’une activité.
-    </p>
-    <p>
-      À travers mon alternance, je participe à la présence digitale d’une boutique :
-      contenus, mise en valeur de l’offre, réseaux sociaux et réflexion sur l’image
-      transmise en ligne.
-    </p>
-    <ul>
-      <li>Création de contenus digitaux</li>
-      <li>Réseaux sociaux</li>
-      <li>Valorisation d’une offre en ligne</li>
-      <li>Compréhension des indicateurs de performance</li>
-      <li>Visibilité et attractivité digitale</li>
-    </ul>
+   <h3>Marketing digital</h3>
+
+<p>
+Je me suis spécialisée dans le marketing digital à travers mon alternance chez AJL Mariage ainsi que les différents projets réalisés durant mon BUT Techniques de Commercialisation.
+</p>
+
+<p>
+Cette expérience m’a permis de comprendre comment développer la visibilité d’une entreprise sur internet, attirer une audience qualifiée et transformer cette audience en prospects puis en clients.
+</p>
+
+<p>
+J’ai participé à la création de contenus pour les réseaux sociaux, à la valorisation des collections de robes de mariée, à l’animation de la communauté en ligne et au suivi des performances des actions mises en place.
+</p>
+
+<p>
+J’ai également appris à analyser les comportements des consommateurs, à identifier les tendances du marché et à adapter les contenus en fonction des objectifs de communication.
+</p>
+
+<ul>
+<li>Création de contenus digitaux</li>
+<li>Gestion des réseaux sociaux</li>
+<li>Community management</li>
+<li>Élaboration d’une stratégie de contenu</li>
+<li>Storytelling</li>
+<li>Veille concurrentielle</li>
+<li>Veille des tendances digitales</li>
+<li>Analyse des performances</li>
+<li>Développement de la visibilité en ligne</li>
+<li>Gestion de l’image de marque</li>
+<li>Création de campagnes promotionnelles</li>
+<li>Référencement naturel (SEO)</li>
+<li>Optimisation de l’engagement</li>
+<li>Analyse des comportements consommateurs</li>
+<li>Création de supports visuels (Canva)</li>
+</ul>
   </div>
 </div>
 
@@ -2631,23 +2678,26 @@ transform: translateY(0);
   <div class="modal-box">
     <button class="modal-close">×</button>
     <p class="modal-kicker">COMPÉTENCE</p>
-    <h3>Communication</h3>
-    <p>
-      J’aime transmettre un message de manière claire, cohérente et esthétique.
-      La communication est pour moi un levier essentiel pour valoriser une marque,
-      une offre ou une expérience client.
-    </p>
-    <p>
-      Je travaille autant sur le fond que sur la forme : choix des supports,
-      cohérence visuelle, création de contenus et adaptation du ton selon la cible.
-    </p>
-    <ul>
-      <li>Stratégie de communication</li>
-      <li>Création de supports visuels et rédactionnels</li>
-      <li>Cohérence de l’image de marque</li>
-      <li>Communication digitale</li>
-      <li>Mise en valeur d’un univers</li>
-    </ul>
+  <p>
+La communication occupe une place centrale dans mon parcours. À travers mon alternance, j’ai créé de nombreux supports destinés à promouvoir les collections de robes de mariée et à renforcer l’image de la boutique.
+
+J’ai appris à adapter mes messages en fonction de la cible, à valoriser une offre et à créer des contenus cohérents sur différents supports de communication.
+
+</p>
+
+<ul>
+<li>Communication digitale</li>
+<li>Communication commerciale</li>
+<li>Création de contenus</li>
+<li>Copywriting</li>
+<li>Storytelling</li>
+<li>Gestion de l’image de marque</li>
+<li>Création de supports visuels</li>
+<li>Canva</li>
+<li>Communication événementielle</li>
+<li>Rédaction web</li>
+<li>Gestion de projets de communication</li>
+</ul>
   </div>
 </div>
 
@@ -2655,23 +2705,28 @@ transform: translateY(0);
   <div class="modal-box">
     <button class="modal-close">×</button>
     <p class="modal-kicker">COMPÉTENCE</p>
-    <h3>Vente & relation client</h3>
-    <p>
-      Le contact humain est un point fort de mon parcours. J’aime écouter,
-      comprendre les besoins, conseiller et accompagner chaque client
-      de façon personnalisée.
-    </p>
-    <p>
-      Mes expériences en boutique et en vente m’ont permis de développer
-      un bon sens du relationnel, de l’écoute active et de la mise en confiance.
-    </p>
-    <ul>
-      <li>Accueil et conseil client</li>
-      <li>Écoute des besoins</li>
-      <li>Argumentation adaptée</li>
-      <li>Création d’un climat de confiance</li>
-      <li>Fidélisation et satisfaction client</li>
-    </ul>
+   <p>
+Mon alternance chez AJL Mariage m’a permis d’acquérir une véritable expérience terrain dans la relation client.
+
+J’ai accompagné les futures mariées tout au long de leur parcours d’achat : accueil, découverte des besoins, conseil personnalisé, essayages et suivi des rendez-vous.
+
+Cette expérience m’a appris l’écoute active, l’empathie et la capacité à construire une relation de confiance durable.
+
+</p>
+
+<ul>
+<li>Accueil client</li>
+<li>Conseil personnalisé</li>
+<li>Découverte des besoins</li>
+<li>Techniques de vente</li>
+<li>Argumentation commerciale</li>
+<li>Gestion des objections</li>
+<li>Suivi client</li>
+<li>Fidélisation</li>
+<li>Expérience client</li>
+<li>Relation client omnicanale</li>
+<li>Satisfaction client</li>
+</ul>
   </div>
 </div>
 
@@ -2679,24 +2734,30 @@ transform: translateY(0);
   <div class="modal-box">
     <button class="modal-close">×</button>
     <p class="modal-kicker">COMPÉTENCE</p>
-    <h3>E-business</h3>
-    <p>
-      Je développe progressivement ma compréhension du commerce en ligne
-      à travers la création de site web, la visibilité digitale
-      et la valorisation d’une activité sur internet.
-    </p>
-    <p>
-      Cette compétence mêle logique commerciale, expérience utilisateur
-      et présence digitale, avec l’objectif de proposer un parcours plus fluide
-      et plus cohérent pour le client.
-    </p>
-    <ul>
-      <li>Création et mise à jour de site web</li>
-      <li>Compréhension du parcours client</li>
-      <li>Valorisation d’une activité en ligne</li>
-      <li>Logique e-commerce</li>
-      <li>Organisation d’un projet digital</li>
-    </ul>
+ <p>
+L’e-business est l’une des compétences que j’ai le plus développées durant mon alternance puisque j’ai conçu et développé le site internet d’AJL Mariage à l’aide de VS Code.
+
+J’ai travaillé sur la structure du site, l’expérience utilisateur, la mise en valeur des collections ainsi que la visibilité en ligne afin de faciliter la prise de contact et la génération de rendez-vous.
+
+Cette expérience m’a permis d’acquérir une vision concrète du fonctionnement d’un projet web de sa conception jusqu’à sa mise en ligne.
+
+</p>
+
+<ul>
+<li>Création de site internet</li>
+<li>HTML / CSS</li>
+<li>VS Code</li>
+<li>UX / UI</li>
+<li>Parcours utilisateur</li>
+<li>E-commerce</li>
+<li>Gestion de contenu web</li>
+<li>SEO</li>
+<li>Optimisation des conversions</li>
+<li>Gestion de projet digital</li>
+<li>Analyse des performances web</li>
+<li>Visibilité en ligne</li>
+<li>Stratégie digitale</li>
+</ul>
   </div>
 </div>
 
